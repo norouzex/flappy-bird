@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="style/querise.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="canvas">
+      <div id="score-box"><p class="score-text">0</p></div>
+      <img src="img/bird-up.png" id="bird" class="bird-smooth" />
+      <div id="menu-box">
+        <div class="menu">
+          <h2 class="result-title">Game Over</h2>
+          <div class="border">
+            <p class="text">score</p>
+            <p class="number">0</p>
+            <p class="text">best</p>
+            <p class="number">0</p>
+          </div>
+          <div class="btn-box">
+            <div class="btn" onclick="restart()">restart</div>
+            <div class="btn">share</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="audio">
+      <source src="sound/wing.mp3" type="audio/mpeg" />
+      <source src="sound/hit.mp3" type="audio/mpeg" />
+      <source src="sound/die.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="pointDieAudio">
+      <source src="sound/point.mp3" type="audio/mpeg" />
+      <source src="sound/die.mp3" type="audio/mpeg" />
+    </audio>
+  </body>
+
+  <script src="js/scripts.js"></script>
+</html>

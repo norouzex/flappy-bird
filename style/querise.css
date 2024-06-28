@@ -1,0 +1,15 @@
+@media (max-width: 38em) {
+
+  #bird {
+
+    left: 12%;
+
+  }
+
+  #score-box {
+
+    left: 45%;
+
+  }
+
+}

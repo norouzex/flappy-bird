@@ -1,0 +1,228 @@
+/* SPACING SYSTEM (px) 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 /
+ 64 / 80 / 96 /128 
+FONT SIZE SYSTEM (px) 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 /
+ 36 / 44 / 52 / 62 / 74 / 86 / 98 */ /* MAIN COLOR: #087f5b GREY COLOR: #343a40 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "acme";
+  /* src: url("fonts/acme-5.ttf") format("truetype"); */
+  src: url("../fonts/FB.woff") format("truetype"); /* Safari, Android, iOS */
+}
+
+body {
+  font-family: "acme", monospace;
+  line-height: 1.5;
+  color: #333;
+}
+html {
+  font-size: 62.5%;
+  /* overflow: hidden; */
+}
+
+#canvas {
+  width: 100%;
+  height: 100vh;
+  border: 2px solid black;
+  position: relative;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#bird {
+  width: 50px;
+  height: 50px;
+  bottom: 55%;
+  position: absolute;
+  left: 40%;
+}
+
+.bird-lose {
+  /* bottom: 8% !important; */
+  /* -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(90deg); */
+  /* transform: translate(-50%, -100%); */
+  animation-name: fall;
+  animation-duration: 700ms;
+  animation-timing-function: ease-in;
+
+  animation-fill-mode: forwards;
+}
+
+@keyframes fall {
+  /* 0% {
+      transform: translate(-50%, 154px) rotate(0deg);
+    } */
+  100% {
+    transform: translateX(-50%) translateY(calc(47vh)) rotate(180deg);
+  }
+}
+
+.bird-smooth {
+  transition: top 50ms ease-in;
+}
+
+.block-up {
+  background-image: url("../img/block_3.png");
+  top: 0;
+  right: 0;
+  transition: right 45ms ease-in;
+  position: absolute;
+  /* background-color: chartreuse; */
+  background-image: url("../img/block_3.png");
+}
+
+.block-bottom {
+  position: absolute;
+  bottom: 8%;
+  right: 0;
+  transition: right 45ms ease-in;
+  /* background-color: blue; */
+  background-image: url("../img/block_3.png");
+}
+
+.block-head-up {
+  background-image: url("../img/block_head.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100%;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+  /* bottom: 0; */
+}
+
+.block-head-bottom {
+  background-image: url("../img/block_head.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 25%;
+
+  /* bottom: 0; */
+}
+
+.block-img {
+  /* background-color: rgb(0, 128, 11); */
+  background-position: center;
+  background-size: contain;
+  background-image: url("../img/block_3.png");
+}
+
+#ground {
+  position: absolute;
+  width: 100%;
+  background-color: blue;
+  height: 8%;
+  bottom: 0;
+}
+
+#score-box {
+  font-size: 5.2rem;
+  position: absolute;
+  text-align: center;
+  left: 2%;
+  height: 5%;
+  width: 2.5%;
+  z-index: 9999;
+}
+
+#menu-box {
+  display: none;
+  position: relative;
+  /* visibility: hidden; */
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  position: absolute;
+  /* border: 1px solid red; */
+  width: 40rem;
+  height: 40rem;
+  border-radius: 10px;
+  background-color: bisque;
+}
+
+.result-title {
+  margin-top: 2rem;
+  font-size: 5.4rem;
+  text-align: center;
+  letter-spacing: 0.5rem;
+}
+
+.border {
+  display: grid;
+  font-size: 3.6rem;
+  /* flex-direction: row; */
+  grid-template-columns: 1fr 1fr;
+  /* grid-row: 1fr 1fr; */
+
+  /* gap: 1.6rem; */
+  justify-content: center;
+  align-items: center;
+}
+.border p:nth-child(1),
+.border p:nth-child(3) {
+  justify-self: end;
+}
+.border p:nth-child(2),
+.border p:nth-child(4) {
+  justify-self: center;
+}
+
+.border p:nth-child(3) {
+  margin-right: 17px;
+}
+.btn-box {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6rem;
+  justify-content: center;
+}
+
+.btn {
+  /* border: 2px solid black; */
+  background-color: rgb(256, 137, 57);
+  width: 12rem;
+  /*height: 2.5rem; */
+  text-align: center;
+  font-size: 2.4rem;
+  box-shadow: 0px 0px 0px 4px #fff inset;
+  color: #fff;
+  cursor: pointer;
+}
+
+.text {
+  color: darkorange;
+}
+.number {
+  color: #777;
+  /* font-family: "acme"; */
+  font-size: 3.6rem;
+  margin-top: 0.8rem;
+}
+
+.btn:active {
+  /* background-color: #777; */
+  transform: scale(0.7);
+}
