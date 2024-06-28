@@ -51,9 +51,7 @@ window.addEventListener("resize", function () {
 });
 
 function letsPlay() {
-  console.log("111111111111");
   if (startPlay == false) {
-    console.log("okkkkk");
     startPlay = true;
     document.removeEventListener("touchstart", letsPlay);
     document.removeEventListener("click", letsPlay);
@@ -99,7 +97,6 @@ function imgFly(src = "img/bird-up.png") {
 function fall() {
   const rect = bird.getBoundingClientRect();
   if (rect.y > window.innerHeight - rect.width - 0.08 * window.innerHeight) {
-    console.log("detected ground ");
     stop();
   }
 }
@@ -151,7 +148,6 @@ function detectCollision(birdRect, blockRect, className, block) {
         playerLeft > blockLeft &&
         playerTop < upBlockTop)
     ) {
-      console.log("detected up ");
       isDetect = true;
       stop();
     }
@@ -167,8 +163,6 @@ function detectCollision(birdRect, blockRect, className, block) {
         playerLeft > blockLeft &&
         playerBottom > bottomBlockTop)
     ) {
-      console.log("detected bottom");
-      console.log(birdRect);
       isDetect = true;
       stop();
     }
@@ -177,10 +171,8 @@ function detectCollision(birdRect, blockRect, className, block) {
     score++;
     pointDieAudio.setAttribute("src", "sound/point.mp3");
     pointDieAudio.play();
-    console.log("add score");
     let scoreText = document.getElementsByClassName("score-text")[0];
     scoreText.innerHTML = score;
-    console.log(scoreText);
     block.pass = true;
   }
 }
@@ -203,9 +195,7 @@ function updateBlocks() {
       // Remove passed blocks
       removeBlock(bk, blockRect, index);
       //End remove blocks
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   });
 }
 
@@ -260,19 +250,16 @@ function stop() {
 }
 
 function restart() {
-  console.log("hiii");
   score = 0;
   xPosition = 0;
   spacePressed = false;
   isLose = false;
   blocks.forEach((e, index) => {
     const bk = document.getElementById(e.obj.id);
-    // blocks.splice(index, 1);
     bk.remove();
   });
   let scoreText = document.getElementsByClassName("score-text")[0];
   scoreText.innerHTML = 0;
-  console.log(blocks);
   blocks = [];
 
   const menuBox = document.getElementById("menu-box");
@@ -322,12 +309,3 @@ function updateGame() {
   fall();
   updateBlocks();
 }
-
-// const keyframes = document.styleSheets[0].cssRules[6];
-// console.log(keyframes);
-// keyframes.insertRule("100% { transform: translate(75%, 500%); }", 1);
-// keyframes.deleteRule(2); // Delete the original 100% keyframe
-
-// console.log(findInStylesheet(data));
-
-// a = [{ a: "a" }, { b: "b" }, { c: "c" }];
